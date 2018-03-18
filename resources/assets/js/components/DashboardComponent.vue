@@ -58,9 +58,9 @@
                             </div>
                         </li>
                         <li class="list-group-item clearfix">
-                          <strong>Total {{ project_total(project.id) }}</strong>
+                          <strong>Total</strong>
                           <div class="pull-right">
-                            <duration :seconds="141903"></duration>
+                            <duration :seconds="project_total(project.id)"></duration>
                           </div>
                         </li>
                     </ul>
@@ -245,19 +245,17 @@
         },
 
         project_total: function(project_id) {
-          // console.log(project_id)
-// console.log(this.projects)
+          let timerSeconds = 0
+
           this.projects.forEach(project => {
             if (project_id == project.id) {
-              let timerSeconds = 0
-              // console.log(project.timers)
-              // project.timers.foreach(timer => {
-              //   timerSeconds += timer.seconds
-              // })
-              // console.log(timerSeconds)
-              // return timerSeconds
+
+              project.timers.map(function(timer) {
+                timerSeconds += timer.seconds
+              })
             }
           })
+          return timerSeconds
         }
 
     }

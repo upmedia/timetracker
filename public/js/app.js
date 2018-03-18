@@ -59513,19 +59513,17 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     },
 
     project_total: function project_total(project_id) {
-      // console.log(project_id)
-      // console.log(this.projects)
+      var timerSeconds = 0;
+
       this.projects.forEach(function (project) {
         if (project_id == project.id) {
-          var timerSeconds = 0;
-          // console.log(project.timers)
-          // project.timers.foreach(timer => {
-          //   timerSeconds += timer.seconds
-          // })
-          // console.log(timerSeconds)
-          // return timerSeconds
+
+          project.timers.map(function (timer) {
+            timerSeconds += timer.seconds;
+          });
         }
       });
+      return timerSeconds;
     }
 
   }
@@ -60584,21 +60582,18 @@ var render = function() {
                                     "li",
                                     { staticClass: "list-group-item clearfix" },
                                     [
-                                      _c("strong", [
-                                        _vm._v(
-                                          "Total " +
-                                            _vm._s(
-                                              _vm.project_total(project.id)
-                                            )
-                                        )
-                                      ]),
+                                      _c("strong", [_vm._v("Total")]),
                                       _vm._v(" "),
                                       _c(
                                         "div",
                                         { staticClass: "pull-right" },
                                         [
                                           _c("duration", {
-                                            attrs: { seconds: 141903 }
+                                            attrs: {
+                                              seconds: _vm.project_total(
+                                                project.id
+                                              )
+                                            }
                                           })
                                         ],
                                         1
