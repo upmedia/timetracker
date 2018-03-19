@@ -42,6 +42,7 @@
                     <ul class="list-group" v-if="project.timers.length > 0">
                         <li v-for="timer in project.timers" :key="timer.id" class="list-group-item clearfix">
                             <strong class="timer-name">{{ timer.name }}</strong>
+                            <small class="hidden-xs">{{moment(timer.started_at).format('HH:mm')}}-{{timer.stopped_at ? moment(timer.stopped_at).format('HH:mm') : ''}}</small>
                             <div class="pull-right">
                                 <span v-if="showTimerForProject(project, timer)" style="margin-right: 10px">
                                     <duration :seconds="counter.seconds"></duration>
