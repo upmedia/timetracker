@@ -37,4 +37,4 @@ Route::get('/test', function() {
 
   return $url;
 
-})
+});
