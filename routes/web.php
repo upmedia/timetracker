@@ -26,3 +26,15 @@ Route::post('/projects', 'ProjectController@store');
 Route::post('/projects/{id}/timers/stop', 'TimerController@stopRunning');
 Route::post('/projects/{id}/timers', 'TimerController@store');
 Route::get('/project/timers/active', 'TimerController@running');
+
+Route::get('/test', function() {
+  $url = parse_url(getenv("CLEARDB_DATABASE_URL"));
+
+  $host = $url["host"];
+  $username = $url["user"];
+  $password = $url["pass"];
+  $database = substr($url["path"], 1);
+
+  return $url;
+
+})
