@@ -58,7 +58,7 @@
                                 </button>
                             </div>
                         </li>
-                        <li class="list-group-item clearfix">
+                        <li class="list-group-item list-group-item-success clearfix">
                           <strong>Total</strong>
                           <div class="pull-right">
                             <duration :seconds="project_total(project.id)"></duration>
