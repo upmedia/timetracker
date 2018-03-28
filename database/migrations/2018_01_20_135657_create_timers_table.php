@@ -18,7 +18,7 @@ class CreateTimersTable extends Migration
             $table->string('name');
             $table->unsignedInteger('project_id');
             $table->unsignedInteger('user_id');
-            $table->timestamp('started_at');
+            $table->timestamp('started_at')->useCurrent();
             $table->timestamp('stopped_at')->default(null)->nullable();
             $table->timestamps();
 
